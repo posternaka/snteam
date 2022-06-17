@@ -1,32 +1,15 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPosts } from '../../redux/actions/getPostsAction';
 
 function News() {
-  const [posts, setPosts] = useState([]);
-
-  const fetchData = (data) => {
-    setPosts(data.data)
-  }
-
-  const fetchApiPosts = async () => {
-    try {
-      const asyncData = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-
-      fetchData(asyncData);
-    }
-    catch {
-      throw Error("Error");
-    }
-  }
+  const {posts} = useSelector((store) => store);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchApiPosts();
+    dispatch(fetchPosts());
   }, []); 
-
 
   return (
     <div className='news_wrapper'>
@@ -34,7 +17,7 @@ function News() {
       {
         posts.map((post, index) => (
           <div key={index} className='news'>
-            <img src="https://via.placeholder.com/250x250/258DC8/E0F6FD" alt="placeholder news" />    
+            <img src="https://via.placeholder.com/450x250/258DC8/E0F6FD" alt="placeholder news" />    
             <p className='news_title'>{post.title}</p>
             <p className='news_text'>{post.body}</p>
           </div>

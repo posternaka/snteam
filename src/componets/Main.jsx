@@ -17,7 +17,7 @@ function Main() {
       <Routes>
         
         <Route path="/" element={<MainPage />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<Profile />} />
         <Route path="/friends" element={<Friends />} />
         <Route path="/news" element={<News />} />
         <Route path="/login" element={<Login />} />
