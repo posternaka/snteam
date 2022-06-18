@@ -1,5 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../hook/useHook';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLogin } from '../../redux/actions/setLoginAction';
+import { setPassword } from '../../redux/actions/setPassAction';
 
 function LoginPage() {
     const navigate = useNavigate();
@@ -7,14 +10,22 @@ function LoginPage() {
     const { signIn } = useAuth();
 
     const fromPage = location.state?.from?.pathname || '/profile/0';
+    
+    const dispatch = useDispatch();
+    const {login, password} = useSelector(state => state);
 
     const hadleSubmit = (e) => {
         e.preventDefault();
-        const form = e.target;
-        const user = form.username.value;
-        const password = form.password.value;
 
-        signIn(user, () => navigate(fromPage, {replace: true}));
+        if(login === localStorage.getItem('username') & password === localStorage.getItem('password')) {
+            console.log('Login success');
+            signIn(login, () => navigate(fromPage, {replace: true}));
+          }
+          else {
+            console.log('Login failed');
+          }
+
+        
     }
 
   return (
@@ -26,12 +37,12 @@ function LoginPage() {
 
                 <p className='form_suptitle'>Name</p>
                 <label>
-                    <input className='form_name' type="text" name="username" placeholder='Nikita'/>
+                    <input className='form_name' type="text" name="username" placeholder='Nikita' onChange={(e) => dispatch(setLogin(e.target.value))}/>
                 </label>
 
                 <p className='form_suptitle'>Password</p>
                 <label>
-                    <input className='form_pass' type="password" name="password" />
+                    <input className='form_pass' type="password" name="password" onChange={(e) => dispatch(setPassword(e.target.value))}/>
                 </label>
 
                 <button className='form_button' type='submit'>Login</button>
