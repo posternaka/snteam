@@ -50,8 +50,6 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-size: 20px;
-  display: flex;
-  flex-direction: column;
   color: #000;
 }
 
@@ -98,19 +96,21 @@ select {
 
 /* WRAPPER */
 .wrapper {
-    position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 
 /* HEADER */
 header {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
+    
+    
 }
 
 .header_wrapper {
+    position: fixed;
+    width: 100%;
+    border-radius: 15% 100% / 90% 0%;
     display: flex;
     flex-direction: row;
     height: 70px;
@@ -120,11 +120,12 @@ header {
 }
 
 .header_nav ul{
+    list-style: none;
     display: flex;
     flex-direction: row;
 }
 
-.header_nav ul a {
+.header_nav ul li {
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
@@ -139,19 +140,39 @@ header {
 
 /* MAIN */
 main {
-    height: 100%;
-    padding-top: 70px;
-    display: flex;
-    flex-direction: row;
+    flex: 1 0 auto;
+}
+
+.main {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
 }
 
 .mainPage_wrapper {
   font-size: 60px;
+  margin: 0 auto;
 }
 
 .nav_wrapper {
   min-width: 200px;
   background-color: #af90b3;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav_wrapper a {
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 20px;
+}
+
+.nav_wrapper a:hover {
+  background-color: rgba(255, 255, 255, .3);
 }
 
     /* news */
@@ -171,9 +192,17 @@ main {
       width: 500px;
       text-align: center;
       margin-bottom: 40px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+
+    .news_wrapper .news:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
     }
 
     .news_wrapper img {
+      padding-top: 20px;
       display: inline;
       margin-bottom: 15px;
     }
@@ -194,13 +223,19 @@ main {
     .profile_wrapper {
       display: grid;
       grid-template-columns: 1fr 2fr;
+      height: 500px;
       column-gap: 20px;
       margin: 0 auto;
       padding-top: 60px;
       padding-right: 60px;
       padding-left: 40px;
-      padding-bottom: 100px;
       text-align: left;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+      transition: 0.3s;
+    }
+
+    .profile_wrapper:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
     }
 
     .profile_wrapper img {
@@ -236,7 +271,6 @@ main {
       padding-top: 60px;
       padding-right: 60px;
       padding-left: 40px;
-      padding-bottom: 100px;
       text-align: center;
     }
 
@@ -265,26 +299,88 @@ main {
       margin-bottom: 15px;
     }
 
+    /* Login Page */
+    .f {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form_wrapper {
+      height: 500px;
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      background-color: #af90b3;
+      border-radius: 50% 20% / 10% 40%;
+    }
+
+    .form_flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .from_title {
+      font-size: 30px;
+      margin-bottom: 36px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input {
+      width: 100%;
+      margin-bottom: 24px;
+      border: 0;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    form input:focus {
+      outline: none;
+    }
+
+    .form_suptitle {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .form_button {
+      margin-top: 20px;
+      border-radius: 5px;
+      padding: 10px;
+      border: 0;
+      transition: ease-in .3s;
+    }
+
+    .form_button:hover {
+      background: #ff96ad;
+      color: #fff;
+      box-shadow: 0 0 5px #ff96ad, 0 0 25px #ff96ad, 0 0 30px #ff96ad, 0 0 100px #ff96ad;
+    }
 
 /* FOTTER */
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #af90b3;
 }
 
 .footer_wrapper {
     padding: 5px;
     font-size: 16px;
     text-align: center;
+    background-color: #af90b3;
 }
 
 
 
 
 .button {
-  position: absolute;
-  top: 50%;
+  height: 40px;
 }

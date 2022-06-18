@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchUsers } from '../../redux/actions/getUsersAction';
 import ContentLoader from "react-content-loader"
 
@@ -9,7 +9,10 @@ function Profile() {
   const {users} = useSelector((store) => store.users);
   const {loading} = useSelector((store) => store.users);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {id} = useParams();
+
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -31,9 +34,12 @@ function Profile() {
     </ContentLoader>
   )
 
+
   return (
     <div className='profile_wrapper'>
-        {loading ? 
+
+        {
+          loading ? 
           <>
           <img src="https://via.placeholder.com/350x350/258DC8/E0F6FD" alt="placeholder user" /> 
           <div className='profile'>
@@ -41,8 +47,10 @@ function Profile() {
               <p className='profile_city'>{users.length > 0 && users[`${id}`].address && users[`${id}`].address.city}</p>
               <p className='profile_catchPhrase'>{users.length > 0 && users[`${id}`].company && users[`${id}`].company.catchPhrase}</p>
           </div>
+          <button className='button' onClick={() => goBack()}>Go back</button>
           </> : MyLoader()
         }
+        
     </div>
   )
 }

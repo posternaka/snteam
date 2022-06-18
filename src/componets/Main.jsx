@@ -8,21 +8,35 @@ import Friends from './routes/Friends';
 import Profile from './routes/Profile';
 import Nav from './Nav'; 
 import Login from './routes/Login';
+import { LoginPage } from './routes/LoginPage';
+
+import RequireAuth from './hoc/RequireAuth';
+
 
 function Main() {
   return (
-    <main>
-      <Nav />
+    <main >
+      <div className="main">
+        <Nav />
+        <Routes>
+          
+          <Route path="/" element={<MainPage />} />
+          <Route path="/profile/:id" element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>  
+          } />
+          <Route path="/friends" element={
+            <RequireAuth>
+              <Friends />
+            </RequireAuth>
+          } />
+          <Route path="/news" element={<News />} />
+          <Route path="/login" element={<LoginPage />} />
+          {/* <Route path="/loginpage" element={<LoginPage />} /> */}
 
-      <Routes>
-        
-        <Route path="/" element={<MainPage />} />
-        <Route path="/profile/:id" element={<Profile />} />
-        <Route path="/friends" element={<Friends />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/login" element={<Login />} />
-
-      </Routes>
+        </Routes>
+      </div>
     </main>
   )
 }

@@ -16,7 +16,6 @@ function Friends() {
     dispatch(fetchUsers());
   }, []); 
 
-  console.log(users, loading);
 
   const MyLoader = () => (
     <ContentLoader 

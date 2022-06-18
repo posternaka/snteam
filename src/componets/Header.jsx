@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import useAuth from './hook/useHook';
+import { useNavigate } from 'react-router-dom';
+ 
 function Header() {
+  const { signIn, signOut } = useAuth();
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className="header_wrapper">
@@ -12,12 +17,8 @@ function Header() {
           </Link>
           <div className="header_nav">
               <ul>
-                  <Link to="/login">
-                    <li>Вход</li>
-                  </Link>
-                  {/* <Link to="/">
-                    <li>Выход</li>
-                  </Link> */}
+                  <li onClick={() => signIn(() => navigate('/login', {replace : true}))}>Вход</li>
+                  <li onClick={() => signOut(() => navigate('/', {replace : true}))}>Выход</li>
               </ul>
           </div>
       </div>

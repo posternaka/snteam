@@ -5,8 +5,8 @@ import { setPassword } from '../../redux/actions/setPassAction';
 
 function Login() {
 
-    localStorage.setItem('username', 'admin');
-    localStorage.setItem('password', '12345');
+  localStorage.setItem('username', 'admin');
+  localStorage.setItem('password', '12345');
 
   const hadlerPost = () => {
     

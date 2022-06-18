@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchPosts} from '../redux/actions/getPostsAction';
 import {fetchUsers} from '../redux/actions/getUsersAction';
+import { AuthProvider } from './hoc/AuthProvider';
 
 import Header from './Header';
 import Main from './Main';
@@ -20,13 +21,15 @@ function App() {
   return (
     <div className="wrapper">
       <BrowserRouter>
+        <AuthProvider>
 
-        <Header />
+          <Header />
 
-        <Main />
+          <Main />
 
-        <Footer />
-        
+          <Footer />
+
+        </AuthProvider>  
       </BrowserRouter>
     </div>
   );
