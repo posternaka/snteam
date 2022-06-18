@@ -5,13 +5,15 @@ import { useParams } from 'react-router-dom';
 import { fetchUsers } from '../../redux/actions/getUsersAction';
 
 function Profile() {
-  const {users} = useSelector((store) => store);
+  const {users} = useSelector((store) => store.users);
   const dispatch = useDispatch();
   const {id} = useParams();
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, []); 
+
+  console.log(users);
 
   return (
     <div className='profile_wrapper'>

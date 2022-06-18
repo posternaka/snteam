@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchPosts } from '../../redux/actions/getPostsAction';
 
 function News() {
-  const {posts} = useSelector((store) => store);
+  const {posts} = useSelector((store) => store.posts);
   const dispatch = useDispatch();
 
   useEffect(() => {

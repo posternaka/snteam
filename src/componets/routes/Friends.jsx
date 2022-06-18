@@ -8,11 +8,12 @@ import { fetchUsers } from '../../redux/actions/getUsersAction';
 function Friends() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {users} = useSelector((store) => store);
+  const {users} = useSelector((store) => store.users);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, []); 
+
 
   return (
     <div className='friends_wrapper'>
@@ -28,6 +29,7 @@ function Friends() {
           </button> 
         ))
       }
+      
     </div>
   )
 }

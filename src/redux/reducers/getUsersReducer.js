@@ -1,10 +1,16 @@
 import {GET_USERS} from '../actions/actionTypes';
-const users = [];
+const users = {
+  users: [],
+  loading: false,
+};
 
 export default function getUsers(state = users, action) {
   switch (action.type) {
     case GET_USERS: 
-        return [...action.payload.data];
+        return {
+          users : [...action.payload.data],
+          loading: true,
+        };
     
     default:
       return state;
