@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/snteam/static/css/main.339fb61c.css",
+    "main.js": "/snteam/static/js/main.c36e9a7a.js",
+    "index.html": "/snteam/index.html",
+    "main.339fb61c.css.map": "/snteam/static/css/main.339fb61c.css.map",
+    "main.c36e9a7a.js.map": "/snteam/static/js/main.c36e9a7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.339fb61c.css",
+    "static/js/main.c36e9a7a.js"
+  ]
+}
