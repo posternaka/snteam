@@ -37,46 +37,42 @@ function LoginPage() {
     // console.log(users);
 
   return (
-    <div className="f">
-    <div className='form_wrapper'>
-        <div className="form_flex">
-            <h1 className='from_title'>Sing In:</h1>
-            <form onSubmit={hadleSubmit} >
+    <div className="form">
+      <div className='form_wrapper'>
+          <div className="form_flex">
+              <h1 className='from_title'>Sing In:</h1>
+              <form onSubmit={hadleSubmit} >
 
-                <p className='form_suptitle'>Name</p>
-                <label>
-                    <input 
-                      className={login.length > 0 ? 'form_name green' : 'form_name red'}
-                      type="text" 
-                      name="username" 
-                      placeholder='Введите имя'
-                      onChange={(e) => dispatch(setLogin(e.target.value))}
-                    />
-                </label>
+                  <p className='form_suptitle'>Name</p>
+                      <input 
+                        className={login.length > 0 ? 'form_name green' : 'form_name red'}
+                        type="text" 
+                        name="username" 
+                        placeholder='Введите имя'
+                        onChange={(e) => dispatch(setLogin(e.target.value))}
+                      />
 
-                <p className='form_suptitle'>Password</p>
-                <label>
-                    <input 
-                      className={password.length > 0 ? 'form_name green' : 'form_name red'}
-                      type="password" 
-                      name="password" 
-                      placeholder='Введите пароль'
-                      onChange={(e) => dispatch(setPassword(e.target.value))}
-                    />
-                </label>
+                  <p className='form_suptitle'>Password</p>
+                      <input 
+                        className={password.length > 0 ? 'form_name green' : 'form_name red'}
+                        type="password" 
+                        name="password" 
+                        placeholder='Введите пароль'
+                        onChange={(e) => dispatch(setPassword(e.target.value))}
+                      />
 
-                <p className='form_message'>{message}</p>
+                  <p className='form_message'>{message}</p>
 
-                <button 
-                  className='button form_button' 
-                  type='submit'
-                  disabled={dis}
-                >
-                  Login
-                </button>
-            </form>
-        </div>
-    </div>
+                  <button 
+                    className='button form_button' 
+                    type='submit'
+                    disabled={dis}
+                  >
+                    Login
+                  </button>
+              </form>
+          </div>
+      </div>
     </div>
   )
 }
