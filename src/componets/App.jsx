@@ -10,6 +10,11 @@ import Main from './Main';
 import Footer from './Footer';
 
 function App() {
+  
+  localStorage.setItem('username', 'admin');
+  localStorage.setItem('password', '12345');
+  localStorage.setItem('isLog', 'false');
+
   const dispatch = useDispatch();
 
   useEffect(() => {

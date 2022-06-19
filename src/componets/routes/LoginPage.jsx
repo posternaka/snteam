@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '../../redux/actions/setLoginAction';
 import { setPassword } from '../../redux/actions/setPassAction';
 
+
 function LoginPage() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -24,8 +25,6 @@ function LoginPage() {
           else {
             console.log('Login failed');
           }
-
-        
     }
 
   return (

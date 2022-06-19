@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from './hook/useHook';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
  
 function Header() {
   const { signIn, signOut } = useAuth();
   const navigate = useNavigate();
+
+  const bool = useSelector(state => state.bool);
 
   return (
     <header>
@@ -17,8 +20,11 @@ function Header() {
           </Link>
           <div className="header_nav">
               <ul>
-                  <li onClick={() => signIn(() => navigate('/login', {replace : true}))}>Вход</li>
-                  <li onClick={() => signOut(() => navigate('/', {replace : true}))}>Выход</li>
+                {
+                  bool 
+                    ? <li onClick={() => signIn(() => navigate('/login', {replace : true}))}>Вход</li> 
+                    : <li onClick={() => signOut(() => navigate('/', {replace : true}))}>Выход</li>
+                }
               </ul>
           </div>
       </div>
