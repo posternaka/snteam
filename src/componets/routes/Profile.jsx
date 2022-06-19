@@ -39,16 +39,19 @@ function Profile() {
     <div className='profile_wrapper'>
 
         {
-          loading ? 
-          <>
-          <img src="https://via.placeholder.com/350x350/258DC8/E0F6FD" alt="placeholder user" /> 
-          <div className='profile'>
-              <p className='profile_name'>{users.length > 0 && users[`${id}`].name}</p>
-              <p className='profile_city'>{users.length > 0 && users[`${id}`].address && users[`${id}`].address.city}</p>
-              <p className='profile_catchPhrase'>{users.length > 0 && users[`${id}`].company && users[`${id}`].company.catchPhrase}</p>
-          </div>
-          <button className='button' onClick={() => goBack()}>Go back</button>
-          </> : MyLoader()
+          loading  
+            ? <>
+              <div className="profile_container">
+                <img src="https://via.placeholder.com/350x350/258DC8/E0F6FD" alt="placeholder user" /> 
+                <div className='profile_content'>
+                    <p className='profile_name'>{users.length > 0 && users[`${id}`].name}</p>
+                    <p className='profile_city'>{users.length > 0 && users[`${id}`].address && users[`${id}`].address.city}</p>
+                    <p className='profile_catchPhrase'>{users.length > 0 && users[`${id}`].company && users[`${id}`].company.catchPhrase}</p>
+                </div>
+              </div>
+              <button className='button profile_button' onClick={() => goBack()}>Go back</button>
+            </> 
+            : MyLoader()
         }
         
     </div>
@@ -56,4 +59,3 @@ function Profile() {
 }
 
 export default Profile;
-

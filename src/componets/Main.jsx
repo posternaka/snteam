@@ -7,7 +7,6 @@ import News from './routes/News';
 import Friends from './routes/Friends';
 import Profile from './routes/Profile';
 import Nav from './Nav'; 
-import Login from './routes/Login';
 import { LoginPage } from './routes/LoginPage';
 
 import RequireAuth from './hoc/RequireAuth';
